@@ -1,0 +1,31 @@
+---
+- hosts: all
+  gather_facts: False
+
+  tasks:
+  - name: deploy nsx-manager
+    nsx_deploy_ova:
+      ovftool_path: "{{ ovftool_path }}"
+      datacenter: "datacenter-1"
+      datastore: "datastore-1"
+      portgroup: "management-pg"
+      cluster: "cluster-1"
+      vmname: "{{ inventory_hostname_short}}"
+      hostname: "{{ inventory_hostname }}"
+      dns_server: "dns-1"
+      dns_domain: "demo.vmware.com"
+      ntp_server: "ntp-1"
+      gateway: "{{ nsxmgr_gateway }}"
+      ip_address: "{{ nsxmgr_ipaddr }}"
+      netmask: "{{ nsxmgr_netmask }}"
+      admin_password: "{{ nsxmgr_cli_password}}"
+      enable_password: "{{ nsxmgr_enable_password }}"
+      path_to_ova: "{{ nsxmgr_ova_path }}"
+      ova_file: "{{ nsxmgr_ova }}"
+      vcenter: "vcenter-01.demo.vmware.com"
+      vcenter_user: "{{ vcenter_username }}"
+      vcenter_passwd: "{{ vcenter_password }}"
+    delegate_to: localhost
+
+
+    # ansible-playbook deploy-nsx-manager.yml -i inventory --limit 'nsx-01.demo.vmware.com'

@@ -1,0 +1,10 @@
+---
+ovftool_path: '/usr/bin'
+nsxmgr_gateway: '192.168.0.1'
+nsxmgr_ipaddr: "192.168.0.2"
+nsxmgr_netmask: '255.255.255.0'
+nsxmgr_ova_path: '/opt/repo'
+nsxmgr_ova: 'VMware-NSX-Manager-6.4.4-11197766.ova'
+nsxmgr_cli_password: 'clipassw0rd'
+nsxmgr_enable_password: 'enablepassw0rd'
+vcenter_password: 'vcenterpassw0rd'

@@ -1,0 +1,16 @@
+[az-01:children]
+az-01-vc01
+az-01-vc02
+az-01-nsx
+
+[az-01-vc01]
+vcenter-01.demo.vmware.com
+nsx-01.demo.vmware.com
+
+[az-01-vc02]
+vcenter-02.demo.vmware.com
+nsx-02.demo.vmware.com
+
+[sc1-01-nsx]
+nsx-01.demo.vmware.com
+nsx-02.demo.vmware.com
