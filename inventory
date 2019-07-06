@@ -11,6 +11,6 @@ nsx-01.demo.vmware.com
 vcenter-02.demo.vmware.com
 nsx-02.demo.vmware.com
 
-[sc1-01-nsx]
+[az-01-nsx]
 nsx-01.demo.vmware.com
 nsx-02.demo.vmware.com

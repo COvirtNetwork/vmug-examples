@@ -27,5 +27,5 @@
       vcenter_passwd: "{{ vcenter_password }}"
     delegate_to: localhost
 
-
-    # ansible-playbook deploy-nsx-manager.yml -i inventory --limit 'nsx-01.demo.vmware.com'
+# Usage example:
+# ansible-playbook deploy-nsx-manager.yaml -i inventory --limit 'nsx-01.demo.vmware.com'

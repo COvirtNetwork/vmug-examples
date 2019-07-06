@@ -1,2 +1,3 @@
 ---
-vcenter_username: 'administrator@vsphere.local'
+vcenter_username: "administrator@vsphere.local"
+nsx_username: "admin"

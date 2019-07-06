@@ -1,0 +1,17 @@
+---
+- name: Logical Switch
+  hosts: all
+  connection: local
+  gather_facts: false
+
+  tasks:
+  - name: Create Logical Switch
+    nsx_logical_switch:
+      nsxmanager_spec: "{{ nsxmanager_spec }}"
+      state: "present"
+      transportzone: "tz-1"
+      name: "{{ item }}"
+    loop: "{{ logical_switches }}"
+    delegate_to: localhost
+
+

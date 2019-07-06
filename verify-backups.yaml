@@ -1,0 +1,33 @@
+---
+- hosts: all
+  gather_facts: False
+
+  tasks:
+
+  - name: Execute API call to return backup information
+    uri:
+      force_basic_auth: yes
+      method: GET
+      password: "{{ nsxmgr_cli_password}}"
+      user: "{{ nsx_username }}"
+      headers:
+        Content-Type: "application/json"
+        Accept: "application/json"
+      url: "https://{{ inventory_hostname }}/api/1.0/appliance-management/backuprestore/backupsettings"
+      validate_certs: no
+      return_content: yes
+    register: nsx_api
+    delegate_to: localhost
+
+  - name: debug nsx_api variable
+    debug:
+      var: nsx_api.json.ftpSettings.transferProtocol
+
+
+  - name: Fail if transfer protocol os not FTP
+    fail:
+    when: nsx_api.json.ftpSettings.transferProtocol != "FTP"
+
+
+# Usage example:
+# ansible-playbook verify-backups.yaml -i inventory --limit 'nsx-01.demo.vmware.com'
