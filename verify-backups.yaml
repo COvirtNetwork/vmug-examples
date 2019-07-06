@@ -17,16 +17,13 @@
       validate_certs: no
       return_content: yes
     register: nsx_api
+    failed_when: "'SFTP' not in nsx_api.json.ftpSettings.transferProtocol"
     delegate_to: localhost
 
   - name: debug nsx_api variable
     debug:
       var: nsx_api.json.ftpSettings.transferProtocol
-
-
-  - name: Fail if transfer protocol os not FTP
-    fail:
-    when: nsx_api.json.ftpSettings.transferProtocol != "FTP"
+      verbosity: 2
 
 
 # Usage example:
